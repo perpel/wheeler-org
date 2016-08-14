@@ -21,6 +21,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+	
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -75,6 +76,10 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+
+<?= $this->registerJsFile('@web/js/html5-tags.js',[
+	'position' => \yii\web\View::POS_HEAD, 
+	'condition'=>'lt ie 9'])?>
 
 <?php $this->endBody() ?>
 </body>
