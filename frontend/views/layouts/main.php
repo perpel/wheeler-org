@@ -26,56 +26,57 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+<?php
 
+$pull = <<<JS
+    var pull        = $('#pull');
+        menu        = $('nav ul');
+        menuHeight  = menu.height();
+    $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+    });
+    $(window).resize(function(){
+        var w = $(window).width();
+        if(w > 320 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+        }
+    });
+JS;
+echo $this->registerJs($pull);
+?>
+
+<!----start-header---->
+<div id="home" class="header scroll">
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        <!---- start-logo---->
+        <div class="logo">
+            <a href="#"><img src="./images/logo.png" title="Blue agency" /></a>
+        </div>
+        <!---- //End-logo---->
+        <!----start-top-nav---->
+         <nav class="top-nav">
+            <ul class="top-nav">
+                <li class="active"><a href="#home" class="scroll">Hello!</a></li>
+                <li class="page-scroll"><a href="#about" class="scroll">About</a></li>
+                <li class="page-scroll"><a href="#services" class="scroll">Services</a></li>
+                <li class="page-scroll"><a href="#port" class="scroll">Protfolio</a></li>
+                <li class="page-scroll"><a href="#blog" class="scroll">Blog</a></li>
+                <li class="page-scroll"><a href="#team" class="scroll">Team</a></li>
+                <li class="page-scroll"><a href="#contact" class="scroll">Contact</a></li>
+            </ul>
+            <a href="#" id="pull"><img src="./images/nav-icon.png" title="menu" /></a>
+        </nav>
+        <div class="clearfix"> </div>
+        <!----//End-top-nav---->
     </div>
 </div>
+<!----//End-header---->
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+<?php $content ?>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+
+
 
 <?= $this->registerJsFile('@web/js/html5-tags.js',[
 	'position' => \yii\web\View::POS_HEAD, 
