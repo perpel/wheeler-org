@@ -34,3 +34,5 @@ phpunit.phar
 
 # IIS Config
 web.config
+
+/runtime
