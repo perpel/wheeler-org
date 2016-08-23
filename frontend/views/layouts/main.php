@@ -55,16 +55,32 @@ echo $this->registerJs($pull);
         </div>
         <!---- //End-logo---->
         <!----start-top-nav---->
+        <?php Yii::$app->language = "en";?>
          <nav class="top-nav">
-            <ul class="top-nav">
-                <li class="active"><a href="#home" class="scroll">Hello!</a></li>
+         <?= Html::ul(Yii::t("app", "nav"), ['item' => function($item, $index) {
+                $options = ['class' => 'page-scroll'];
+                if ($item['active']) {
+                    Html::removeCssClass($options, 'page-scroll');
+                    Html::addCssClass($options, 'active');
+                }
+                return Html::tag(
+                    'li',
+                    Html::a($item['title'], [$item['url']], ['class' => 'scroll']),
+                    $options
+                );
+            }, 'class' => 'top-nav']) ?>
+
+
+            <!-- <ul class="top-nav">
+
+                <li class="active"><a href="#home" class="scroll"</a></li>
                 <li class="page-scroll"><a href="#about" class="scroll">About</a></li>
                 <li class="page-scroll"><a href="#services" class="scroll">Services</a></li>
                 <li class="page-scroll"><a href="#port" class="scroll">Protfolio</a></li>
                 <li class="page-scroll"><a href="#blog" class="scroll">Blog</a></li>
                 <li class="page-scroll"><a href="#team" class="scroll">Team</a></li>
                 <li class="page-scroll"><a href="#contact" class="scroll">Contact</a></li>
-            </ul>
+            </ul> -->
             <a href="#" id="pull"><img src="./images/nav-icon.png" title="menu" /></a>
         </nav>
         <div class="clearfix"> </div>
