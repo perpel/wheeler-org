@@ -51,13 +51,12 @@ echo $this->registerJs($pull);
     <div class="container">
         <!---- start-logo---->
         <div class="logo">
-            <a href="#"><img src="./images/logo.png" title="Blue agency" /></a>
+            <a href="#"><img src="<?= Yii::getAlias('@web')?>/images/logo.png" title="Blue agency" /></a>
         </div>
         <!---- //End-logo---->
         <!----start-top-nav---->
-        <?php Yii::$app->language = "en";?>
-         <nav class="top-nav">
-         <?= Html::ul(Yii::t("app", "nav"), ['item' => function($item, $index) {
+        <nav class="top-nav">
+        <?= Html::ul(Yii::t("app", "nav"), ['item' => function($item, $index) {
                 $options = ['class' => 'page-scroll'];
                 if ($item['active']) {
                     Html::removeCssClass($options, 'page-scroll');
@@ -69,19 +68,8 @@ echo $this->registerJs($pull);
                     $options
                 );
             }, 'class' => 'top-nav']) ?>
-
-
-            <!-- <ul class="top-nav">
-
-                <li class="active"><a href="#home" class="scroll"</a></li>
-                <li class="page-scroll"><a href="#about" class="scroll">About</a></li>
-                <li class="page-scroll"><a href="#services" class="scroll">Services</a></li>
-                <li class="page-scroll"><a href="#port" class="scroll">Protfolio</a></li>
-                <li class="page-scroll"><a href="#blog" class="scroll">Blog</a></li>
-                <li class="page-scroll"><a href="#team" class="scroll">Team</a></li>
-                <li class="page-scroll"><a href="#contact" class="scroll">Contact</a></li>
-            </ul> -->
-            <a href="#" id="pull"><img src="./images/nav-icon.png" title="menu" /></a>
+            
+            <a href="#" id="pull"><img src="<?= Yii::getAlias('@web')?>/images/nav-icon.png" title="menu" /></a>
         </nav>
         <div class="clearfix"> </div>
         <!----//End-top-nav---->

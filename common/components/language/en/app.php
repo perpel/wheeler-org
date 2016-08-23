@@ -5,14 +5,23 @@ return [
 	"nav" => [
 		[
 			"title" => "Home",
-			"url" => "site/home",
+			"url" => "site/index",
 			"active" => true,
 		],
 		[
 			"title" => "About",
-			"url" => "site/us",
+			"url" => "about/index",
 			"active" => false,
 		],
+		[
+			"title" => "Product",
+			"url" => "product/index",
+			"active" => false,
+		],
+
+
+
+
 	],
 
 ];
