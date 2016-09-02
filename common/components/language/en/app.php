@@ -1,6 +1,8 @@
 <?php
 
 return [
+
+	"titleHome" => "Home",
 	
 	"nav" => [
 		[

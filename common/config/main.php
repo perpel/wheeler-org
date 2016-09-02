@@ -11,8 +11,15 @@ return [
 					'class' => 'yii\i18n\PhpMessageSource', 
 					'basePath' => '@common/components/language', 
 					'fileMap' => [
-						 'app' => 'app.php', 
+						 'app' => 'app.php',
 						 'app/error' => 'error.php', 
+					],
+				],
+				'banner' => [ 
+					'class' => 'yii\i18n\PhpMessageSource', 
+					'basePath' => '@common/components/language', 
+					'fileMap' => [
+						 'banner' => 'banner.php',
 					],
 				],
 				// 'product' => [ 
