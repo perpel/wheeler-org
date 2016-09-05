@@ -64,6 +64,21 @@ return [
 			['icon'=>'service-icon5', 'label' => 'X1005', 'url' => '#'],
 			['icon'=>'service-icon6', 'label' => 'X1006', 'url' => '#'],
 		]
-	]  
+	],
+
+	'homeProtfolio' => [
+		'h3' => 'ADFDSA',
+		'menus' => [
+			['span'=>'APP', 'filter'=>'app'],
+			['span'=>'Card', 'filter'=>'card'],
+			['span'=>'ICON', 'filter'=>'icon'],
+			['span'=>'LOGO', 'filter'=>'logo'],
+		],
+		'items' => [
+			['portH4'=>'dasfa', 'portSpan'=>'dfdf', 'cat'=>'logo', 'catClass'=>'logo'],
+			['portH4'=>'dasfa', 'portSpan'=>'dfdf', 'cat'=>'icon', 'catClass'=>'icon'],
+			['portH4'=>'dasfa', 'portSpan'=>'dfdf', 'cat'=>'app', 'catClass'=>'app'],
+		]
+	],
 
 ];
